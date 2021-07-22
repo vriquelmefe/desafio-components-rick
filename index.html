@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        background-image: url("https://rickandmortypod.com/wp-content/uploads/2018/11/cropped-RM_page-header_background1-3.png");
+      }
+      img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+      ul{
+        align-items: center;
+        list-style-type: none;
+      }
+      li{
+        padding: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        align-items: center;
+        color: rgb(49, 165, 64);
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <lista-personajes ></lista-personajes>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+      Vue.component("lista-personajes", {
+        template: `
+            <ul>
+              <li v-for="(personaje, index) in personajes" :key="index"><img :src="personaje.imagen" />
+                  <p> {{ personaje.nombre }} </p>
+              </li>
+            </ul>
+        
+        `,
+        data: () => ({
+          personajes: [
+            {nombre: "Rick Sanchez",
+            imagen:"https://rickandmortyapi.com/api/character/avatar/1.jpeg"},
+            {nombre: "Morty Smith",
+            imagen:"https://rickandmortyapi.com/api/character/avatar/2.jpeg"},
+            {nombre: "Summer Smith",
+            imagen:"https://rickandmortyapi.com/api/character/avatar/3.jpeg"},
+            {nombre: "Beth smith",
+            imagen:"https://rickandmortyapi.com/api/character/avatar/4.jpeg"},
+            {nombre: "Jerry Smith",
+            imagen:"https://rickandmortyapi.com/api/character/avatar/5.jpeg"},
+          ]
+        }),
+      });
+
+      new Vue({
+        el: "#app",
+
+      })
+    </script>
+  </body>
+</html>
